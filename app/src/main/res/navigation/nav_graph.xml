@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/splashFragment">
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="me.aleksandarzekovic.joke_hilt.ui.splash.SplashFragment"
+        android:label="splash_fragment"
+        tools:layout="@layout/splash_fragment" >
+        <action
+            android:id="@+id/action_splashFragment_to_categoryJokeFragment"
+            app:destination="@id/categoryJokeFragment"
+            app:popUpTo="@id/splashFragment"
+            app:popUpToInclusive="true"/>
+    </fragment>
+    <fragment
+        android:id="@+id/categoryJokeFragment"
+        android:name="me.aleksandarzekovic.joke_hilt.ui.categoryjoke.CategoryJokeFragment"
+        android:label="CategoryJokeFragment" >
+        <action
+            android:id="@+id/action_categoryJokeFragment_to_jokeFragment"
+            app:destination="@id/jokeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/jokeFragment"
+        android:name="me.aleksandarzekovic.joke_hilt.ui.joke.JokeFragment"
+        android:label="JokeFragment" >
+        <argument
+            android:name="category"
+            app:argType="string" />
+    </fragment>
+</navigation>

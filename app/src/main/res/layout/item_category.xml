@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="model"
+            type="me.aleksandarzekovic.joke_hilt.data.model.CategoryJoke" />
+
+        <variable
+            name="listener"
+            type="me.aleksandarzekovic.joke_hilt.ui.categoryjoke.CategoryJokeListener" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_15"
+        android:background="@color/colorPrimary"
+        android:clickable="true"
+        android:elevation="8dp"
+        android:focusable="true"
+        android:foregroundGravity="center"
+        android:onClick="@{() -> listener.clickCategoryJoke(model)}"
+        android:padding="4dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_20"
+            android:text="@{model.name}"
+            android:textAlignment="center"
+            android:textColor="@color/icons"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
