@@ -5,16 +5,18 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
-import dagger.android.support.DaggerFragment
+import dagger.hilt.android.AndroidEntryPoint
 import me.aleksandarzekovic.joke_hilt.R
 import me.aleksandarzekovic.joke_hilt.databinding.CategoryJokeFragmentBinding
 import me.aleksandarzekovic.joke_hilt.utils.NetManager
 import javax.inject.Inject
 
-class CategoryJokeFragment : DaggerFragment() {
+@AndroidEntryPoint
+class CategoryJokeFragment : Fragment() {
 
     companion object {
         fun newInstance() = CategoryJokeFragment()
@@ -22,6 +24,7 @@ class CategoryJokeFragment : DaggerFragment() {
 
     @Inject
     lateinit var netManager: NetManager
+
     lateinit var viewModel: CategoryJokeViewModel
 
     private lateinit var binding: CategoryJokeFragmentBinding

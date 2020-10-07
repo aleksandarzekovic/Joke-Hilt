@@ -5,11 +5,12 @@ import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.os.Build
 import androidx.annotation.RequiresApi
+import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class NetManager @Inject constructor(private var applicationContext: Context) {
+class NetManager @Inject constructor(@ApplicationContext private var applicationContext: Context) {
 
     val isConnectedToInternet: Boolean?
         @RequiresApi(Build.VERSION_CODES.M)

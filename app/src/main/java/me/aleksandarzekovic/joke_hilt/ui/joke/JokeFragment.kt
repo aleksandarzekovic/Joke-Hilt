@@ -6,25 +6,22 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import dagger.android.support.DaggerFragment
+import dagger.hilt.android.AndroidEntryPoint
 import me.aleksandarzekovic.joke_hilt.R
 import me.aleksandarzekovic.joke_hilt.databinding.JokeFragmentBinding
-import me.aleksandarzekovic.joke_hilt.utils.daggerawareviewmodel.DaggerAwareViewModelFactory
 import me.aleksandarzekovic.joke_hilt.utils.recyclerview.Resource
 import javax.inject.Inject
 
-class JokeFragment : DaggerFragment() {
+@AndroidEntryPoint
+class JokeFragment : Fragment() {
 
     companion object {
         fun newInstance() = JokeFragment()
     }
 
-    @Inject
-    lateinit var jokeViewModelFactory: DaggerAwareViewModelFactory
-
-    @Inject
     lateinit var viewModel: JokeViewModel
 
     lateinit var binding: JokeFragmentBinding
@@ -33,7 +30,7 @@ class JokeFragment : DaggerFragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        viewModel = ViewModelProvider(this, jokeViewModelFactory)
+        viewModel = ViewModelProvider(this)
             .get(JokeViewModel::class.java)
     }
 

@@ -1,11 +1,7 @@
 package me.aleksandarzekovic.joke_hilt.di
 
-import dagger.android.AndroidInjector
-import dagger.android.DaggerApplication
+import android.app.Application
+import dagger.hilt.android.HiltAndroidApp
 
-class JokeHiltApplication : DaggerApplication() {
-
-    override fun applicationInjector(): AndroidInjector<out DaggerApplication> {
-        return DaggerAppComponent.factory().create(this)
-    }
-}
+@HiltAndroidApp
+class JokeHiltApplication : Application()
